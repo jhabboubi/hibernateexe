@@ -8,6 +8,7 @@ public interface IEmployee {
 
     List<Employee> getAllEmployees();
     void createEmployee(Employee e);
-    void updateEmployee(Employee e);
+    void updateEmployee(int id);
     void deleteEmployee(int id);
+
 }
