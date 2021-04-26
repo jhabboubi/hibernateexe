@@ -4,10 +4,13 @@ import lombok.extern.java.Log;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+import org.jboss.jandex.Main;
 import org.perscholas.MainRunner;
 import org.perscholas.dao.IEmployee;
 import org.perscholas.models.Employee;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -84,5 +87,31 @@ public class EmployeeServices implements IEmployee {
     @Override
     public void deleteEmployee(int id) {
 
+    }
+
+    @Override
+    public List<Employee> getEmpByName(String s) {
+        // session
+        Session session = MainRunner.sessionFactory.openSession();
+        List<Employee> emp = new ArrayList<Employee>();
+        // trans
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            emp = session.createCriteria(Employee.class).add(Restrictions.like("empName",(s+"%"))).list();
+
+
+            tx.commit();
+        }catch (HibernateException e){
+            e.printStackTrace();
+
+        }catch(NullPointerException e) {
+            e.printStackTrace();
+        }finally {
+            session.close();
+        }
+
+
+        return emp;
     }
 }

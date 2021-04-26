@@ -10,5 +10,6 @@ public interface IEmployee {
     void createEmployee(Employee e);
     void updateEmployee(long id);
     void deleteEmployee(int id);
+    List<Employee> getEmpByName(String s);
 
 }

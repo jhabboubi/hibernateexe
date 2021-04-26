@@ -20,7 +20,7 @@ public class MainRunner {
         int userInput = 0;
         do {
 
-            System.out.printf("1. Create new Employee.%n2.Update Employee%n5. Print all employees");
+            System.out.printf("1. Create new Employee.%n2.Update Employee%n3.Search Database by Name%n5. Print all employees");
 
             userInput = input.nextInt();
             input.nextLine();
@@ -41,6 +41,14 @@ public class MainRunner {
                 case 2:
                     System.out.println("Enter Emp ID to Update: ");
                     es.updateEmployee(input.nextInt());
+                    break;
+                case 3:
+                    System.out.println("Enter a name to search database: ");
+                    String s = input.next();
+                    List<Employee> emp = es.getEmpByName(s);
+                    for (Employee e : emp) {
+                        System.out.println(e);
+                    }
                     break;
                 case 5:
 
