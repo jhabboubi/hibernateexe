@@ -49,7 +49,7 @@ public class EmployeeServices implements IEmployee {
     }
 
     @Override
-    public void updateEmployee(int id) {
+    public void updateEmployee(long id) {
         Session session = MainRunner.sessionFactory.openSession();
         Scanner input = new Scanner(System.in);
         Transaction tx = null;

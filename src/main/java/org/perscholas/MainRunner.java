@@ -26,15 +26,15 @@ public class MainRunner {
             input.nextLine();
             switch (userInput) {
                 case 1:
-                    System.out.println("Enter Employee ID:");
+                    //System.out.println("Enter Employee ID:");
 
-                    long id = input.nextInt();
-                    input.nextLine();
+                    //long id = input.nextInt();
+                   // input.nextLine();
                     System.out.println("Enter Employee Name:");
                     String name = input.nextLine();
                     System.out.println("Enter Employee Email:");
                     String email = input.next();
-                    Employee createEmp = new Employee(id,name, email);
+                    Employee createEmp = new Employee(name, email);
                     es.createEmployee(createEmp);
                     break;
 

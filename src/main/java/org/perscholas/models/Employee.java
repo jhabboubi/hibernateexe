@@ -18,7 +18,7 @@ import java.math.BigInteger;
 public class Employee {
     //fields
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "INT(11) UNSIGNED")
     long empId;
     String empName;
